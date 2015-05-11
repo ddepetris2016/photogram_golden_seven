@@ -37,6 +37,26 @@ class PhotosController < ApplicationController
 
   end
 
+  def edit_form
+
+   a = Photo.find(params[:id])
+   a.caption = @caption
+   a.source= @source
+
+   @id = params[:id]
+
+ end
+
+ def update_row
+
+  a=Photo.find(params[:id])
+  a.caption = params[:the_caption]
+  a.source = params[:the_source]
+  a.save
+
+  redirect_to("http://localhost:3000/photos")
+
+end
 
 end
 
